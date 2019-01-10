@@ -1,5 +1,8 @@
 # Compiled class file
 *.class
+*.metadata
+.recommenders
+.settings
 
 # Log file
 *.log
