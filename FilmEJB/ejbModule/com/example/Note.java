@@ -24,10 +24,10 @@ public class Note implements Serializable {
   
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
-  @Column(name="NOTEID", nullable=false)
-  private int noteId;
+  @Column(name="NOTEID", nullable=false) 
+  int noteId;
   @Column(name="NOTE", nullable=true)
-  private String note;
+  public String note;
   @Column(name="PROJECT_ID", nullable=false)
   private int projectID;
   
