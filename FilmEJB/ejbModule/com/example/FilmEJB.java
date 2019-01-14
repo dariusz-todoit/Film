@@ -91,14 +91,23 @@ public class FilmEJB implements FilmInterface {
 		
 	}
 
+	
 	@Override
-	public List<Object[]> getNoteToCategory2() {
-		Query query = entityManager.createQuery 
-        ("SELECT n, c FROM Note n  JOIN n.categories c");
+	public List<Note> getNoteToCategory2() {
+		Query query = entityManager.createQuery("SELECT distinct n FROM Note n  JOIN n.categories c");
     @SuppressWarnings("unchecked")
-    List<Object[]> rs = (List<Object[]>) query.getResultList();
+    List<Note> rs = (List<Note>) query.getResultList();
     
     return rs;
+	}
+
+	@Override
+	public List<Note> getNotes2() {
+		Query query = entityManager.createQuery("SELECT distinct n FROM Note n join n.categories c");//  JOIN n.project p");
+		@SuppressWarnings("unchecked")
+		List<Note> rs = (List<Note>) query.getResultList();
+		
+		return rs;
 	}
   
  

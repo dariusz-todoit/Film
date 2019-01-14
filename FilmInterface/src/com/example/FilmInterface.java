@@ -11,5 +11,6 @@ public interface FilmInterface {
   List<Object[]> getNoteToCategory ();
   void addNoteToCategory (int noteID, int categoryID);
   void removeNoteToCategory (int noteID, int categoryID);
-  List<Object[]> getNoteToCategory2 ();
+  List<Note> getNoteToCategory2 ();
+  List<Note> getNotes2 ();
 }
