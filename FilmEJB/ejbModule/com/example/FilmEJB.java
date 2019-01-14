@@ -76,7 +76,9 @@ public class FilmEJB implements FilmInterface {
 
 	@Override
 	public void addNoteToCategory (int noteID, int categoryID) {
-		NoteToCategory noteToCategory = new NoteToCategory (noteID, categoryID); 
+		Note note = entityManager.find(Note.class, noteID);
+		Category category = entityManager.find(Category.class, categoryID);
+		NoteToCategory noteToCategory = new NoteToCategory (note, category); 
 		entityManager.persist(noteToCategory);
     entityManager.flush();
 	}
