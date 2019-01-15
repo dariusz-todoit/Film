@@ -42,11 +42,15 @@ public class FilmServlet extends HttpServlet {
       result = result + "\n " + (Integer) row[0] + " " + (String) row[1] + " " + (Integer) row[2] + " " + (String) row[3];
     }
     
+    result = result + "\n ";
+    
     hw.addNoteToCategory (60, 1);
     
     for (Object[] row : hw.getNoteToCategory()) {
       result = result + "\n " + (Integer) row[0] + " " + (String) row[1] + " " + (Integer) row[2] + " " + (String) row[3];
     }
+    
+    result = result + "\n ";
     
     hw.removeNoteToCategory (60, 1);
     

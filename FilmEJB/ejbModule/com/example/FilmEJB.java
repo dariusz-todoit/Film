@@ -86,11 +86,17 @@ public class FilmEJB implements FilmInterface {
 	@Override
 	public void removeNoteToCategory(int noteID, int categoryID) {
 		 Query query = entityManager.createQuery 
-       ("delete from NoteToCategory n where n.noteID = :noteID and n.categoryID = :categoryID");
+       ("select n from NoteToCategory n where n.note.noteId = :noteID and n.category.id = :categoryID");
 		 query.setParameter("noteID", noteID);
 		 query.setParameter("categoryID", categoryID);
-		 query.executeUpdate();
-		
+		 @SuppressWarnings("unchecked")
+		 List<NoteToCategory> rs = (List<NoteToCategory>) query.getResultList();
+		 if (!rs.isEmpty()) {
+			 // int id = rs.get(0).id;
+			 // NoteToCategory noteToCategory = entityManager.find(NoteToCategory.class, id);
+			 // entityManager.remove(entityManager.merge(noteToCategory));
+			 entityManager.remove(entityManager.merge(rs.get(0)));
+		 }		
 	}
 
 	

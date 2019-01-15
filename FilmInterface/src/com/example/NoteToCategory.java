@@ -20,12 +20,13 @@ public class NoteToCategory implements Serializable {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   @Column(name="ID", nullable=false)
-  private int id;
+  public int id;
 
-  private Note note;
-  
   @JoinColumn(name="NOTEID")
   @ManyToOne(optional=false)
+  private Note note;
+  
+  
   public Note getNote() {
 		return note;
 	}
@@ -34,10 +35,11 @@ public class NoteToCategory implements Serializable {
 		note = value;
 	}
   
+  @JoinColumn(name="CATEGORYID")
+  @ManyToOne(optional=false)
 	private Category category;
   
-	@JoinColumn(name="CATEGORYID")
-  @ManyToOne(optional=false)
+	
   public Category getCategory() {
 		return category;
 	}
