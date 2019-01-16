@@ -118,7 +118,24 @@ public class FilmEJB implements FilmInterface {
 		return rs;
 	}
   
- 
+	@Override
+  public int addAdminUser (String login, int permissionLevel) {
+  	AdminUser adminUser = new AdminUser (login, permissionLevel);
+  	entityManager.persist(adminUser);
+    entityManager.flush();
+    
+    return adminUser.id;  	
+  }
+
+	@Override
+	public List<AdminUser> getAdminUsers() {
+		
+		Query query = entityManager.createQuery("SELECT u FROM User u where u.userType = 'A'");//  JOIN n.project p");
+		@SuppressWarnings("unchecked")
+		List<AdminUser> rs = (List<AdminUser>) query.getResultList();
+		
+		return rs;		
+	}
   
 
 }

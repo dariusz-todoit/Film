@@ -1,7 +1,6 @@
 package com.example;
 
 import java.io.IOException;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -72,6 +71,18 @@ public class FilmServlet extends HttpServlet {
       result = result + "\n " + n.noteId + " " + n.note + " " + n.project.id  + " " + n.project.name;
     }
     
+    result = result + "\n ";
+    
+    int newUserId = hw.addAdminUser("Zenek", 4);
+    result = result + "\n " + newUserId;
+    
+    result = result + "\n ";
+    
+    for (AdminUser u : hw.getAdminUsers()) {
+      result = result + "\n " + u.id + " " + u.login + " " + u.permissionLevel;
+    }
+    
+        
     response.getWriter().append(result);
 	}
 

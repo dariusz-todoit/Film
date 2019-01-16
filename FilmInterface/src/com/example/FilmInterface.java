@@ -13,4 +13,6 @@ public interface FilmInterface {
   void removeNoteToCategory (int noteID, int categoryID);
   List<Note> getNoteToCategory2 ();
   List<Note> getNotes2 ();
+  int addAdminUser (String login, int permissionLevel);
+  List<AdminUser> getAdminUsers ();
 }

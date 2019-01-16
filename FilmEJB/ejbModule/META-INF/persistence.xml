@@ -7,6 +7,9 @@
     <class>com.example.Project</class>
     <class>com.example.Category</class>
     <class>com.example.NoteToCategory</class>
+    <class>com.example.User</class>
+    <class>com.example.AdminUser</class>
+    <class>com.example.OrdinaryUser</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>	
 		<properties>
    <property name="javax.persistence.jdbc.driver" value="net.sourceforge.jtds.jdbc.Driver"/>
