@@ -133,7 +133,7 @@ public class FilmEJB implements FilmInterface {
 	@Override
 	public List<AdminUser> getAdminUsers() {
 		
-		Query query = entityManager.createQuery("SELECT u FROM User u where u.userType = 'A'");//  JOIN n.project p");
+		Query query = entityManager.createQuery("SELECT u FROM AdminUser u");
 		@SuppressWarnings("unchecked")
 		List<AdminUser> rs = (List<AdminUser>) query.getResultList();
 		
