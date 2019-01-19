@@ -154,7 +154,8 @@ public class FilmEJB implements FilmInterface {
 		}
 		note.setNote("updateNoteWithDelay1-");
 		entityManager.persist(note);
-		result = result + "\n" + "updateNoteWithDelay1: end " + sdf.format(cal.getTime());
+		Calendar cal2 = Calendar.getInstance();
+		result = result + "\n" + "updateNoteWithDelay1: end " + sdf.format(cal2.getTime());
 		
 		return result;
 	}
@@ -175,7 +176,8 @@ public class FilmEJB implements FilmInterface {
 		result = result + "\n" + updateNoteWithDelay1(id, text);
 		
 		entityManager.persist(note);
-		result = result + "\n" + "updateNoteWithDelay2: end " + sdf.format(cal.getTime());
+		Calendar cal2 = Calendar.getInstance();
+		result = result + "\n" + "updateNoteWithDelay2: end " + sdf.format(cal2.getTime());
 		
 		return result;
 	}
