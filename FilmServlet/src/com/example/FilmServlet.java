@@ -23,6 +23,8 @@ public class FilmServlet extends HttpServlet {
 	
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String result = "Servlet asks EJB and gets response: ";
+    
+    result = result + "\n " +  hw.updateNoteWithDelay2(147, "xyz");
 
     int newNoteId = hw.newNote("nowa notatka z serwletu", 1);
     result = result + "\n " + newNoteId;
@@ -73,8 +75,8 @@ public class FilmServlet extends HttpServlet {
     
     result = result + "\n ";
     
-    int newUserId = hw.addAdminUser("Zenek", 4);
-    result = result + "\n " + newUserId;
+    // int newUserId = hw.addAdminUser("Zenek", 4);
+    // result = result + "\n " + newUserId;
     
     result = result + "\n ";
     

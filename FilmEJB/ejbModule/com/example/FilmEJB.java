@@ -2,12 +2,15 @@ package com.example;
 
 
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 
 
 
@@ -135,6 +138,46 @@ public class FilmEJB implements FilmInterface {
 		List<AdminUser> rs = (List<AdminUser>) query.getResultList();
 		
 		return rs;		
+	}
+
+	@Override
+	public String updateNoteWithDelay1(int id, String text) {
+		String result = "";
+		Note note = entityManager.find (Note.class, id, LockModeType.PESSIMISTIC_WRITE);
+		Calendar cal = Calendar.getInstance();
+    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		result = result + "\n" + "updateNoteWithDelay1: begin " + sdf.format(cal.getTime());
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		note.setNote("updateNoteWithDelay1-");
+		entityManager.persist(note);
+		result = result + "\n" + "updateNoteWithDelay1: end " + sdf.format(cal.getTime());
+		
+		return result;
+	}
+
+	@Override
+	public String updateNoteWithDelay2(int id, String text) {
+		String result = "";
+		Note note = entityManager.find (Note.class, id, LockModeType.PESSIMISTIC_WRITE);
+		Calendar cal = Calendar.getInstance();
+    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		result = result + "\n" + "updateNoteWithDelay2: begin " + sdf.format(cal.getTime());
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			result = result + e.toString();
+		}
+		note.setNote("updateNoteWithDelay2-");
+		result = result + "\n" + updateNoteWithDelay1(id, text);
+		
+		entityManager.persist(note);
+		result = result + "\n" + "updateNoteWithDelay2: end " + sdf.format(cal.getTime());
+		
+		return result;
 	}
   
 

@@ -15,4 +15,6 @@ public interface FilmInterface {
   List<Note> getNotes2 ();
   int addAdminUser (String login, int permissionLevel);
   List<AdminUser> getAdminUsers ();
+  String updateNoteWithDelay1 (int id, String text);
+  String updateNoteWithDelay2 (int id, String text);  
 }
