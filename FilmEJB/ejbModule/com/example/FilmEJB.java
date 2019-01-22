@@ -148,7 +148,7 @@ public class FilmEJB implements FilmInterface {
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		result = result + "\n" + "updateNoteWithDelay1: begin " + sdf.format(cal.getTime());
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -168,7 +168,7 @@ public class FilmEJB implements FilmInterface {
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		result = result + "\n" + "updateNoteWithDelay2: begin " + sdf.format(cal.getTime());
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			result = result + e.toString();
 		}
@@ -180,6 +180,30 @@ public class FilmEJB implements FilmInterface {
 		result = result + "\n" + "updateNoteWithDelay2: end " + sdf.format(cal2.getTime());
 		
 		return result;
+	}
+
+	@Override
+	public List<Object[]> getAdminUsersWithGrouping() {
+		Query query = entityManager.createQuery
+      ("SELECT count (u.id), u.permissionLevel FROM AdminUser u group by u.permissionLevel order by u.permissionLevel");
+		
+		@SuppressWarnings("unchecked")
+    List<Object[]> rs = (List<Object[]>) query.getResultList();
+    
+    return rs;
+	}
+
+	@Override
+	public List<Note> getPagedNotes (int pageNumber, int pageSize) {
+		
+		Query query = entityManager.createQuery("SELECT distinct n FROM Note n order by n.noteId");
+		query.setMaxResults (pageSize);
+		query.setFirstResult ((pageNumber - 1) * pageSize);
+		@SuppressWarnings("unchecked")
+		List<Note> rs = (List<Note>) query.getResultList();
+		
+		return rs;
+		
 	}
   
 

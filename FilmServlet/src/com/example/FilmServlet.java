@@ -84,6 +84,20 @@ public class FilmServlet extends HttpServlet {
       result = result + "\n " + u.id + " " + u.login + " " + u.permissionLevel;
     }
     
+    result = result + "\n ";
+    
+    for (Object[] row : hw.getAdminUsersWithGrouping()) {
+      result = result + "\n " + (Long) row[0] + " " + (Integer) row[1];
+    }
+    
+    result = result + "\n ";
+    
+    for (Note n : hw.getPagedNotes (2, 10)) {
+      result = result + "\n " + n.noteId + " " + n.note;
+    }
+    
+    
+    
         
     response.getWriter().append(result);
 	}
