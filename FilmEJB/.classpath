@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="ejbModule"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_131">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
@@ -13,5 +12,16 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/FilmInterface"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="FilmInterface"/>
+	<classpathentry kind="src" path="ejbModule"/>
+	<classpathentry kind="lib" path="/FilmInterface/bin/com/example"/>
+	<classpathentry kind="lib" path="C:/files/todoit/JPA/metamodel/eclipselink.jar"/>
+	<classpathentry kind="lib" path="C:/files/todoit/JPA/metamodel/eclipselink-jpa-modelgen_1.2.0.v20091016-r5565.jar"/>
+	<classpathentry kind="lib" path="C:/files/todoit/JPA/metamodel/javax.persistence_2.0_preview.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

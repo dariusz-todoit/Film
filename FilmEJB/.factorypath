@@ -1,0 +1,6 @@
+<factorypath>
+    <factorypathentry kind="PLUGIN" id="org.eclipse.jst.ws.annotations.core" enabled="false" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="C:\files\todoit\JPA\metamodel\eclipselink.jar" enabled="false" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="C:\files\todoit\JPA\metamodel\eclipselink-jpa-modelgen_1.2.0.v20091016-r5565.jar" enabled="false" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="C:\files\todoit\JPA\metamodel\javax.persistence_2.0_preview.jar" enabled="true" runInBatchMode="false"/>
+</factorypath>

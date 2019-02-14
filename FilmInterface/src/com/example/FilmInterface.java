@@ -21,4 +21,5 @@ public interface FilmInterface {
   String updateNoteWithDelay2 (int id, String text);
   List<Object[]> getAdminUsersWithGrouping ();
   List<Note> getPagedNotes (int pageNumber, int pageSize);
+  List<Note> getNotesWithCriteriaApi ();
 }

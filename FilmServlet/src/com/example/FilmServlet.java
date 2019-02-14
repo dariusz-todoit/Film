@@ -96,6 +96,11 @@ public class FilmServlet extends HttpServlet {
       result = result + "\n " + n.noteId + " " + n.note;
     }
     
+    result = result + "\n\n Criteria API";
+    
+    for (Note n : hw.getNotesWithCriteriaApi ()) {
+      result = result + "\n " + n.noteId + " " + n.note;
+    }
     
     
         

@@ -27,4 +27,21 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>FilmInterface</name>
+			<type>2</type>
+			<location>C:/files/todoit/repository/Film/FilmInterface</location>
+		</link>
+		<link>
+			<name>bin</name>
+			<type>2</type>
+			<location>C:/files/todoit/repository/Film/FilmInterface/bin</location>
+		</link>
+		<link>
+			<name>example</name>
+			<type>2</type>
+			<location>C:/files/todoit/repository/Film/FilmInterface/src/com/example</location>
+		</link>
+	</linkedResources>
 </projectDescription>

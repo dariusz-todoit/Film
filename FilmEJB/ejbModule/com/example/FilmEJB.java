@@ -9,6 +9,12 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.Metamodel;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.TypedQuery;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 
@@ -204,6 +210,23 @@ public class FilmEJB implements FilmInterface {
 		
 		return rs;
 		
+	}
+
+	@Override
+	public List<Note> getNotesWithCriteriaApi() {
+		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+		Metamodel m = entityManager.getMetamodel();
+		EntityType<Note> Note_ = m.entity(Note.class);
+		CriteriaQuery<Note> cq = cb.createQuery(Note.class);
+		Root<Note> note = cq.from(Note.class);
+		cq.where(cb.lt(note.get(Note_.noteId), 90));
+		
+		cq.select(note);
+		TypedQuery<Note> q = entityManager.createQuery(cq);
+		List<Note> notes = q.getResultList();
+		
+		
+		return notes;
 	}
   
 
