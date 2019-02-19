@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="Hello World Project" default="generate-cannonical-model">
+<target name="generate-cannonical-model">
+  <javac 
+    source="1.8"
+    target="1.8"
+    fork="true"
+    encoding="utf-8"
+    debug="yes" 
+    debuglevel="lines,vars,source" 
+    destdir=".apt_generated" >
+        <compilerarg line="-processor org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor"/>
+        <compilerarg value="-proc:only" />
+        <compilerarg value="-Aeclipselink.persistencexml=META-INF/persistence.xml" />
+  	    <classpath path="C:\files\todoit\JPA\metamodel\eclipselink.jar" />
+  	   	<classpath path="C:\glassfish4\glassfish\modules\javax.persistence.jar" />
+  	  	<classpath path="C:\glassfish4\glassfish\modules\javax.ejb-api.jar" />
+        <src path="src"/>					
+  </javac>
+</target>
+</project>
